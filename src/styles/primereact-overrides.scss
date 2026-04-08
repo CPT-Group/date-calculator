@@ -1,0 +1,37 @@
+.p-card,
+.p-dialog {
+  background: var(--surface-card) !important;
+  color: var(--text-color) !important;
+  border: 1px solid var(--surface-border) !important;
+}
+
+.p-dialog .p-dialog-header,
+.p-dialog .p-dialog-content,
+.p-dialog .p-dialog-footer {
+  background: var(--surface-card) !important;
+  color: var(--text-color) !important;
+}
+
+.p-dialog .p-dialog-header {
+  border-bottom: 1px solid var(--surface-border) !important;
+}
+
+.p-dialog .p-dialog-footer {
+  border-top: 1px solid var(--surface-border) !important;
+}
+
+.p-button {
+  background: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: var(--primary-color-text) !important;
+}
+
+.p-button.p-button-outlined {
+  background: transparent !important;
+  color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.p-selectbutton .p-button {
+  min-width: 8rem;
+}
