@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
 }
 
 html,
@@ -22,7 +21,7 @@ body {
 .home-page-container {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 1.5rem;
 }
@@ -30,8 +29,8 @@ body {
 .home-page-content {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+  justify-content: flex-start;
+  text-align: left;
 }

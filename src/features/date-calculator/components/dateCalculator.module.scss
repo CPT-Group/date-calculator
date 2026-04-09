@@ -1,0 +1,130 @@
+.calculatorContainer {
+  width: min(72rem, 100%);
+  margin-inline: auto;
+}
+
+.calculatorHeader {
+  margin-bottom: 1rem;
+}
+
+.pageGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1rem 0;
+}
+
+.cardHeaderTitleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.cardSubtitle {
+  margin: 0;
+  color: var(--text-color-secondary);
+}
+
+.selectorRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.selectorGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.selectorLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+  align-items: end;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inlineOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.resultList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.copyRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.copyValue {
+  min-width: 0;
+  word-break: break-word;
+}
+
+.resultPanel {
+  margin-top: 1rem;
+}
+
+.validationMessage {
+  margin-top: 0.25rem;
+}
+
+.widgetShell {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .selectorRow {
+    grid-template-columns: 1fr;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .copyRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

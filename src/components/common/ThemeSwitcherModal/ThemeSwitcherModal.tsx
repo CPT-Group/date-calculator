@@ -33,7 +33,13 @@ export const ThemeSwitcherModal = () => {
         style={{ width: 'min(36rem, 90vw)' }}
       >
         <div className={styles.dialogContent}>
-          <SelectButton value={theme} options={THEME_OPTIONS} onChange={(event) => setTheme(event.value)} />
+          <SelectButton
+            value={theme}
+            options={THEME_OPTIONS}
+            optionLabel="label"
+            optionValue="value"
+            onChange={(event) => setTheme(event.value)}
+          />
         </div>
       </Dialog>
     </>
