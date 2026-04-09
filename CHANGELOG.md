@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.9 - 2026-04-08
+
+- Added CPT brand icon assets (`favicon.svg`, `CPTGroupLogo.svg`) sourced from existing CPT app branding.
+- Updated app metadata for `CPT Date Calculator` including title template, publisher/author fields, Open Graph basics, and icon declarations.
+- Added `metadataBase` support with `NEXT_PUBLIC_SITE_URL` fallback to the Netlify site URL for cleaner hosted metadata behavior.
+
 ## 0.1.8 - 2026-04-08
 
 - Added copy-to-clipboard controls for key result sections.
