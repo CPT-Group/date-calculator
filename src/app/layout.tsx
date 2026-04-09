@@ -6,9 +6,34 @@ import { Providers } from '@/providers';
 import 'primereact/resources/themes/lara-dark-blue/theme.css';
 import './main.scss';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cpt-date-calc.netlify.app';
+
 export const metadata: Metadata = {
-  title: 'Date Calculator',
-  description: 'Date Calculator scaffold',
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: 'CPT Date Calculator',
+    template: '%s | CPT Date Calculator',
+  },
+  description: 'CPT Date Calculator for timezone-aware date differences and add/subtract planning.',
+  applicationName: 'CPT Date Calculator',
+  authors: [{ name: 'CPT Group' }],
+  creator: 'CPT Group',
+  publisher: 'CPT Group',
+  openGraph: {
+    type: 'website',
+    siteName: 'CPT Date Calculator',
+    title: 'CPT Date Calculator',
+    description: 'Timezone-aware date calculations for planning and collaboration.',
+    url: '/',
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/CPTGroupLogo.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: ['/favicon.svg'],
+    apple: [{ url: '/CPTGroupLogo.svg', type: 'image/svg+xml' }],
+  },
 };
 
 export default function RootLayout({
