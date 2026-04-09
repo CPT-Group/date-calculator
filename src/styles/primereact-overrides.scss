@@ -181,19 +181,80 @@ textarea.p-inputtextarea {
   background: var(--surface-border) !important;
 }
 
-/* Overlays */
+/* Overlays — full selector chains so preset themes cannot leave dark panels on light UI */
+
 .p-dropdown-panel,
+.p-dropdown-panel.p-component,
 .p-multiselect-panel,
+.p-multiselect-panel.p-component,
 .p-datepicker {
   background: var(--surface-card) !important;
   color: var(--text-color) !important;
   border: 1px solid var(--surface-border) !important;
+  box-shadow: 0 4px 16px var(--maskbg) !important;
+}
+
+.p-dropdown-panel .p-dropdown-header,
+.p-multiselect-panel .p-multiselect-header {
+  background: var(--surface-card) !important;
+  color: var(--text-color) !important;
+  border-bottom: 1px solid var(--surface-border) !important;
+}
+
+.p-dropdown-panel .p-dropdown-header .p-dropdown-filter-icon,
+.p-multiselect-panel .p-multiselect-filter-icon {
+  color: var(--text-color-secondary) !important;
+}
+
+.p-dropdown-panel .p-dropdown-items,
+.p-multiselect-panel .p-multiselect-items {
+  padding: 0.5rem 0 !important;
 }
 
 .p-dropdown-item,
 .p-multiselect-item,
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item,
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item,
 .p-datepicker-calendar td > span {
   color: var(--text-color) !important;
+  background: transparent !important;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight,
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight,
+.p-dropdown-item.p-highlight,
+.p-multiselect-item.p-highlight {
+  background: var(--surface-hover) !important;
+  color: var(--text-color) !important;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover,
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover,
+.p-dropdown-item:not(.p-highlight):not(.p-disabled):hover,
+.p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
+  background: var(--surface-hover) !important;
+  color: var(--text-color) !important;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus,
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus {
+  background: var(--surface-hover) !important;
+  color: var(--text-color) !important;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item-group,
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item-group {
+  background: var(--surface-ground) !important;
+  color: var(--text-color) !important;
+  font-weight: 700 !important;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-empty-message,
+.p-dropdown-empty-message,
+.p-multiselect-panel .p-multiselect-empty-message,
+.p-multiselect-empty-message {
+  color: var(--text-color-secondary) !important;
+  background: transparent !important;
 }
 
 .p-datepicker-header,
@@ -210,14 +271,10 @@ textarea.p-inputtextarea {
   color: var(--text-color) !important;
 }
 
-.p-dropdown-item.p-highlight,
-.p-multiselect-item.p-highlight {
-  background: var(--surface-hover) !important;
-  color: var(--text-color) !important;
-}
-
 .p-dropdown-filter-container .p-inputtext,
-.p-multiselect-filter-container .p-inputtext {
+.p-multiselect-filter-container .p-inputtext,
+.p-dropdown-panel .p-dropdown-header .p-inputtext,
+.p-multiselect-panel .p-multiselect-header .p-inputtext {
   background: var(--field-bg) !important;
   color: var(--field-text) !important;
   border-color: var(--field-border) !important;

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.13 - 2026-04-09
+
+- Removed global **PrimeReact Lara Dark Blue** theme import from `layout.tsx`; it hardcoded dark dropdown overlays (`#1f2937`), conflicted with `html[data-theme]` tokens, and forced `:root` / `color-scheme` in ways that broke light themes (see [PrimeReact theming](https://primereact.org/)).
+- Expanded **dropdown / multiselect overlay** overrides (panel, header, filter row, items, highlight, hover, focus, group labels, empty state) so portaled panels match the active theme.
+
 ## 0.1.12 - 2026-04-09
 
 - Copy actions on result rows now open a PrimeReact **Toast** with summary “Copied” and the copied string in the detail (errors still toast with “Copy failed”).

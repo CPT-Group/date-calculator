@@ -3,7 +3,8 @@ import Script from 'next/script';
 
 import { Providers } from '@/providers';
 
-import 'primereact/resources/themes/lara-dark-blue/theme.css';
+/* No global Prime theme: we drive colors via html[data-theme] + primereact-overrides.scss.
+   A preset theme (e.g. lara-dark-blue) hardcodes dark dropdown overlays and :root color-scheme. */
 import './main.scss';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cpt-date-calc.netlify.app';
