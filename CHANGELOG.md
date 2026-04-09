@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.10 - 2026-04-09
+
+- Declared `@date-fns/tz` in `dependencies` so production installs (including Netlify) resolve `TZDate` imports; the package was used in code but missing from `package.json`, which broke `next build` on clean CI.
+
 ## 0.1.9 - 2026-04-08
 
 - Added CPT brand icon assets (`favicon.svg`, `CPTGroupLogo.svg`) sourced from existing CPT app branding.
