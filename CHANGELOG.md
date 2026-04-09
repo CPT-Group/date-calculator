@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.11 - 2026-04-09
+
+- Theme system: added `--field-*` and inline-message tokens per theme, `color-scheme` on `html`, and expanded `primereact-overrides` so inputs, dropdowns, calendars, checkboxes, select buttons, overlays, and PrimeIcons track the active theme (fixes dark controls on light themes and low-contrast info messages).
+- Theme switcher: dialog closes automatically after a theme is chosen; strengthened styles for the dialog close control so the SVG uses `currentColor` and matches `--text-color` (fixes invisible X on light dialogs).
+
 ## 0.1.10 - 2026-04-09
 
 - Declared `@date-fns/tz` in `dependencies` so production installs (including Netlify) resolve `TZDate` imports; the package was used in code but missing from `package.json`, which broke `next build` on clean CI.

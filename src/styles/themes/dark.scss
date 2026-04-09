@@ -1,5 +1,7 @@
 html[data-theme='dark'],
 [data-theme='dark'] {
+  color-scheme: dark;
+
   --surface-ground: #0f1a28;
   --surface-card: #1a2d44;
   --surface-border: #2d4a66;
@@ -12,4 +14,22 @@ html[data-theme='dark'],
   --text-primary: #e8eef5;
   --maskbg: rgba(0, 0, 0, 0.5);
   --focus-ring: 0 0 0 0.2rem rgba(96, 165, 250, 0.35);
+
+  --field-bg: #152238;
+  --field-text: var(--text-primary);
+  --field-border: #3d5e82;
+  --field-placeholder: #94a3b8;
+
+  --inline-msg-info-bg: rgba(96, 165, 250, 0.18);
+  --inline-msg-info-text: #e0f2fe;
+  --inline-msg-info-border: #60a5fa;
+  --inline-msg-warn-bg: rgba(251, 191, 36, 0.15);
+  --inline-msg-warn-text: #fef3c7;
+  --inline-msg-warn-border: #fbbf24;
+  --inline-msg-error-bg: rgba(248, 113, 113, 0.18);
+  --inline-msg-error-text: #fee2e2;
+  --inline-msg-error-border: #f87171;
+  --inline-msg-success-bg: rgba(52, 211, 153, 0.18);
+  --inline-msg-success-text: #d1fae5;
+  --inline-msg-success-border: #34d399;
 }

@@ -17,4 +17,24 @@
   --text-primary: var(--text-color);
   --maskbg: rgba(7, 0, 27, 0.75);
   --focus-ring: 0 0 0 0.2rem rgba(36, 205, 197, 0.35);
+
+  /* Form controls (PrimeReact unstyled + native inputs follow these) */
+  --field-bg: #150828;
+  --field-text: var(--text-primary);
+  --field-border: var(--surface-border);
+  --field-placeholder: var(--text-color-secondary);
+
+  /* Inline Message (Message component uses p-inline-message-*) */
+  --inline-msg-info-bg: rgba(36, 205, 197, 0.15);
+  --inline-msg-info-text: #e8fdfa;
+  --inline-msg-info-border: rgba(36, 205, 197, 0.45);
+  --inline-msg-warn-bg: rgba(251, 191, 36, 0.15);
+  --inline-msg-warn-text: #fef3c7;
+  --inline-msg-warn-border: rgba(251, 191, 36, 0.45);
+  --inline-msg-error-bg: rgba(248, 113, 113, 0.15);
+  --inline-msg-error-text: #fee2e2;
+  --inline-msg-error-border: rgba(248, 113, 113, 0.45);
+  --inline-msg-success-bg: rgba(52, 211, 153, 0.15);
+  --inline-msg-success-text: #d1fae5;
+  --inline-msg-success-border: rgba(52, 211, 153, 0.45);
 }

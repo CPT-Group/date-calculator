@@ -1,5 +1,7 @@
 html[data-theme='light'],
 [data-theme='light'] {
+  color-scheme: light;
+
   --surface-ground: #ffffff;
   --surface-card: #f8fafc;
   --surface-border: #e2e8f0;
@@ -12,4 +14,22 @@ html[data-theme='light'],
   --text-primary: #0f1a28;
   --maskbg: rgba(0, 0, 0, 0.38);
   --focus-ring: 0 0 0 0.2rem rgba(59, 130, 246, 0.35);
+
+  --field-bg: #ffffff;
+  --field-text: #0f172a;
+  --field-border: #cbd5e1;
+  --field-placeholder: #64748b;
+
+  --inline-msg-info-bg: #dbeafe;
+  --inline-msg-info-text: #0c4a6e;
+  --inline-msg-info-border: #3b82f6;
+  --inline-msg-warn-bg: #fef3c7;
+  --inline-msg-warn-text: #78350f;
+  --inline-msg-warn-border: #d97706;
+  --inline-msg-error-bg: #fee2e2;
+  --inline-msg-error-text: #7f1d1d;
+  --inline-msg-error-border: #dc2626;
+  --inline-msg-success-bg: #d1fae5;
+  --inline-msg-success-text: #064e3b;
+  --inline-msg-success-border: #059669;
 }

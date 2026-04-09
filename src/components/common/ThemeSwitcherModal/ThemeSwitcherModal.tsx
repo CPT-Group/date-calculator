@@ -38,7 +38,12 @@ export const ThemeSwitcherModal = () => {
             options={THEME_OPTIONS}
             optionLabel="label"
             optionValue="value"
-            onChange={(event) => setTheme(event.value)}
+            onChange={(event) => {
+              if (event.value !== undefined && event.value !== null) {
+                setTheme(event.value);
+                setIsOpen(false);
+              }
+            }}
           />
         </div>
       </Dialog>

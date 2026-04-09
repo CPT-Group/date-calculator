@@ -1,3 +1,5 @@
+/* Unlayered so these win over @layer primereact from PrimeReact 10 injected styles */
+
 .p-card,
 .p-dialog {
   background: var(--surface-card) !important;
@@ -20,10 +22,42 @@
   border-top: 1px solid var(--surface-border) !important;
 }
 
+/* Dialog header actions: Prime close uses p-link + SVG (currentColor); force readable contrast */
+.p-dialog .p-dialog-header-icons .p-dialog-header-icon,
+.p-dialog .p-dialog-header-icons .p-dialog-header-close,
+.p-dialog button.p-dialog-header-close.p-link {
+  color: var(--text-color) !important;
+  background: transparent !important;
+  opacity: 1 !important;
+}
+
+.p-dialog .p-dialog-header-icons .p-dialog-header-icon:hover,
+.p-dialog .p-dialog-header-icons .p-dialog-header-close:hover,
+.p-dialog button.p-dialog-header-close.p-link:hover {
+  color: var(--primary-color) !important;
+}
+
+.p-dialog .p-dialog-header-icons .p-icon,
+.p-dialog button.p-dialog-header-close svg,
+.p-dialog button.p-dialog-header-close .p-dialog-header-close-icon {
+  color: inherit !important;
+}
+
+.p-dialog button.p-dialog-header-close svg path {
+  fill: currentColor !important;
+}
+
+/* ----- Buttons ----- */
+
 .p-button {
   background: var(--primary-color) !important;
   border-color: var(--primary-color) !important;
   color: var(--primary-color-text) !important;
+}
+
+.p-button .p-button-icon,
+.p-button .pi {
+  color: inherit !important;
 }
 
 .p-button.p-button-outlined {
@@ -32,3 +66,239 @@
   border-color: var(--primary-color) !important;
 }
 
+.p-button.p-button-outlined .p-button-icon,
+.p-button.p-button-outlined .pi {
+  color: inherit !important;
+}
+
+.p-button.p-button-text {
+  background: transparent !important;
+  color: var(--primary-color) !important;
+  border-color: transparent !important;
+}
+
+.p-button.p-button-text .p-button-icon,
+.p-button.p-button-text .pi {
+  color: inherit !important;
+}
+
+/* SelectButton: only the active segment uses primary fill */
+.p-selectbutton > .p-button:not(.p-highlight) {
+  background: var(--field-bg) !important;
+  color: var(--field-text) !important;
+  border: 1px solid var(--field-border) !important;
+}
+
+.p-selectbutton > .p-button:not(.p-highlight) .p-button-icon,
+.p-selectbutton > .p-button:not(.p-highlight) .pi {
+  color: inherit !important;
+}
+
+.p-selectbutton > .p-button.p-highlight {
+  background: var(--primary-color) !important;
+  color: var(--primary-color-text) !important;
+  border-color: var(--primary-color) !important;
+}
+
+/* ----- Text inputs & wrappers ----- */
+
+.p-inputtext,
+.p-inputnumber-input,
+textarea.p-inputtextarea {
+  background: var(--field-bg) !important;
+  color: var(--field-text) !important;
+  border: 1px solid var(--field-border) !important;
+  border-radius: var(--border-radius);
+}
+
+.p-inputtext::placeholder,
+.p-inputnumber-input::placeholder {
+  color: var(--field-placeholder) !important;
+  opacity: 1;
+}
+
+.p-dropdown,
+.p-multiselect,
+.p-calendar,
+.p-inputnumber,
+.p-inputwrapper {
+  border-radius: var(--border-radius);
+}
+
+.p-dropdown,
+.p-multiselect {
+  background: var(--field-bg) !important;
+  border: 1px solid var(--field-border) !important;
+  color: var(--field-text) !important;
+}
+
+.p-dropdown .p-dropdown-label,
+.p-dropdown .p-inputtext,
+.p-multiselect .p-multiselect-label {
+  background: transparent !important;
+  color: var(--field-text) !important;
+}
+
+.p-dropdown .p-dropdown-trigger,
+.p-multiselect .p-multiselect-trigger {
+  color: var(--field-text) !important;
+}
+
+.p-dropdown .p-dropdown-trigger .p-icon,
+.p-multiselect .p-multiselect-trigger .p-icon {
+  color: inherit !important;
+}
+
+.p-calendar .p-inputtext,
+.p-calendar-w-btn .p-inputtext {
+  background: var(--field-bg) !important;
+  color: var(--field-text) !important;
+  border: 1px solid var(--field-border) !important;
+}
+
+.p-calendar-w-btn .p-datepicker-trigger {
+  background: var(--field-bg) !important;
+  color: var(--field-text) !important;
+  border-color: var(--field-border) !important;
+}
+
+.p-inputnumber {
+  background: var(--field-bg) !important;
+  border: 1px solid var(--field-border) !important;
+}
+
+.p-inputnumber-input {
+  background: transparent !important;
+}
+
+.p-inputnumber-button {
+  background: var(--surface-hover) !important;
+  color: var(--field-text) !important;
+  border-color: var(--field-border) !important;
+}
+
+.p-inputnumber-button:hover {
+  background: var(--surface-border) !important;
+}
+
+/* Overlays */
+.p-dropdown-panel,
+.p-multiselect-panel,
+.p-datepicker {
+  background: var(--surface-card) !important;
+  color: var(--text-color) !important;
+  border: 1px solid var(--surface-border) !important;
+}
+
+.p-dropdown-item,
+.p-multiselect-item,
+.p-datepicker-calendar td > span {
+  color: var(--text-color) !important;
+}
+
+.p-datepicker-header,
+.p-datepicker-title,
+.p-datepicker-buttonbar {
+  background: transparent !important;
+  color: var(--text-color) !important;
+}
+
+.p-datepicker-prev,
+.p-datepicker-next,
+.p-datepicker-month,
+.p-datepicker-year {
+  color: var(--text-color) !important;
+}
+
+.p-dropdown-item.p-highlight,
+.p-multiselect-item.p-highlight {
+  background: var(--surface-hover) !important;
+  color: var(--text-color) !important;
+}
+
+.p-dropdown-filter-container .p-inputtext,
+.p-multiselect-filter-container .p-inputtext {
+  background: var(--field-bg) !important;
+  color: var(--field-text) !important;
+  border-color: var(--field-border) !important;
+}
+
+/* Checkbox */
+.p-checkbox .p-checkbox-box {
+  background: var(--field-bg) !important;
+  border: 1px solid var(--field-border) !important;
+}
+
+.p-checkbox.p-highlight .p-checkbox-box {
+  background: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.p-checkbox .p-checkbox-icon {
+  color: var(--primary-color-text) !important;
+}
+
+.p-checkbox:not(.p-disabled):hover .p-checkbox-box {
+  border-color: var(--primary-color) !important;
+}
+
+/* Inline Message — high-contrast text vs tinted background */
+.p-inline-message {
+  border-radius: var(--border-radius);
+  border-width: 1px;
+  border-style: solid;
+  padding: 0.5rem 0.75rem;
+}
+
+.p-inline-message.p-inline-message-info {
+  background: var(--inline-msg-info-bg) !important;
+  color: var(--inline-msg-info-text) !important;
+  border-color: var(--inline-msg-info-border) !important;
+}
+
+.p-inline-message.p-inline-message-info .p-inline-message-text,
+.p-inline-message.p-inline-message-info .p-inline-message-icon {
+  color: var(--inline-msg-info-text) !important;
+}
+
+.p-inline-message.p-inline-message-warn {
+  background: var(--inline-msg-warn-bg) !important;
+  color: var(--inline-msg-warn-text) !important;
+  border-color: var(--inline-msg-warn-border) !important;
+}
+
+.p-inline-message.p-inline-message-warn .p-inline-message-text,
+.p-inline-message.p-inline-message-warn .p-inline-message-icon {
+  color: var(--inline-msg-warn-text) !important;
+}
+
+.p-inline-message.p-inline-message-error {
+  background: var(--inline-msg-error-bg) !important;
+  color: var(--inline-msg-error-text) !important;
+  border-color: var(--inline-msg-error-border) !important;
+}
+
+.p-inline-message.p-inline-message-error .p-inline-message-text,
+.p-inline-message.p-inline-message-error .p-inline-message-icon {
+  color: var(--inline-msg-error-text) !important;
+}
+
+.p-inline-message.p-inline-message-success {
+  background: var(--inline-msg-success-bg) !important;
+  color: var(--inline-msg-success-text) !important;
+  border-color: var(--inline-msg-success-border) !important;
+}
+
+.p-inline-message.p-inline-message-success .p-inline-message-text,
+.p-inline-message.p-inline-message-success .p-inline-message-icon {
+  color: var(--inline-msg-success-text) !important;
+}
+
+.p-inline-message .p-icon {
+  color: inherit !important;
+}
+
+/* PrimeIcons inherit text color so they track the theme */
+.pi {
+  color: inherit;
+}
