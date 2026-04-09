@@ -1,8 +1,14 @@
 # Changelog
 
+## 0.1.14 - 2026-04-09
+
+- Restored **PrimeReact Lara Dark Blue** theme import — it provides all structural styling (padding, font-size, border-radius, transitions) that components rely on.
+- Our `data-theme` tokens + `primereact-overrides.scss` still remap all colors; added `--surface-overlay` and `--highlight-*` variables to each theme so Lara's portaled panels and selection highlights always track the active theme.
+- Added uniform icon–text spacing to inline messages (`gap: 0.5rem`, `margin-right: 0.5rem` on `.p-inline-message-icon`).
+
 ## 0.1.13 - 2026-04-09
 
-- Removed global **PrimeReact Lara Dark Blue** theme import from `layout.tsx`; it hardcoded dark dropdown overlays (`#1f2937`), conflicted with `html[data-theme]` tokens, and forced `:root` / `color-scheme` in ways that broke light themes (see [PrimeReact theming](https://primereact.org/)).
+- Removed global PrimeReact Lara Dark Blue theme import from `layout.tsx` (reverted in 0.1.14).
 - Expanded **dropdown / multiselect overlay** overrides (panel, header, filter row, items, highlight, hover, focus, group labels, empty state) so portaled panels match the active theme.
 
 ## 0.1.12 - 2026-04-09

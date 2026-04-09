@@ -3,8 +3,9 @@ import Script from 'next/script';
 
 import { Providers } from '@/providers';
 
-/* No global Prime theme: we drive colors via html[data-theme] + primereact-overrides.scss.
-   A preset theme (e.g. lara-dark-blue) hardcodes dark dropdown overlays and :root color-scheme. */
+/* Lara Dark provides structural styling (padding, font-size, border-radius, transitions).
+   Our primereact-overrides.scss then remaps all colors to data-theme tokens. */
+import 'primereact/resources/themes/lara-dark-blue/theme.css';
 import './main.scss';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cpt-date-calc.netlify.app';

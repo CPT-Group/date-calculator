@@ -1,7 +1,16 @@
 :root {
+  /* Override Lara's color-scheme so light themes get native light controls;
+     each data-theme file re-sets color-scheme as needed. */
+  color-scheme: dark;
+
   --font-family: Lato, Helvetica, Arial, sans-serif;
   --border-radius: 6px;
   --content-padding: 1rem;
+
+  /* Neutralize Lara's surface-overlay (used for dropdown panels) */
+  --surface-overlay: var(--surface-card);
+  --highlight-bg: var(--surface-hover);
+  --highlight-text-color: var(--text-color);
 
   --surface-ground: #0c0020;
   --surface-card: #1a0a2e;
