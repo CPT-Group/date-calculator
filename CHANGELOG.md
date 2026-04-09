@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.12 - 2026-04-09
+
+- Copy actions on result rows now open a PrimeReact **Toast** with summary “Copied” and the copied string in the detail (errors still toast with “Copy failed”).
+- Added toast styling hooks in `primereact-overrides` so notifications follow theme tokens.
+
 ## 0.1.11 - 2026-04-09
 
 - Theme system: added `--field-*` and inline-message tokens per theme, `color-scheme` on `html`, and expanded `primereact-overrides` so inputs, dropdowns, calendars, checkboxes, select buttons, overlays, and PrimeIcons track the active theme (fixes dark controls on light themes and low-contrast info messages).

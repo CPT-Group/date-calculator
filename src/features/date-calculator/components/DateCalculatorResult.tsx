@@ -1,10 +1,11 @@
 'use client';
 
 import { format } from 'date-fns';
-import { useState } from 'react';
+import { useRef } from 'react';
 import { Button } from 'primereact/button';
 import { Card } from 'primereact/card';
 import { Message } from 'primereact/message';
+import { Toast } from 'primereact/toast';
 
 import styles from './dateCalculator.module.scss';
 import type { CalculatorEngineResult } from '../types/dateCalculator.types';
@@ -42,16 +43,24 @@ const CopyableValue = ({
 };
 
 export const DateCalculatorResult = ({ result }: DateCalculatorResultProps) => {
-  const [copyStatus, setCopyStatus] = useState<string | null>(null);
+  const toast = useRef<Toast>(null);
 
   const handleCopy = async (value: string) => {
     try {
       await navigator.clipboard.writeText(value);
-      setCopyStatus('Copied to clipboard.');
-      window.setTimeout(() => setCopyStatus(null), 1800);
+      toast.current?.show({
+        severity: 'success',
+        summary: 'Copied',
+        detail: value,
+        life: 2800,
+      });
     } catch {
-      setCopyStatus('Copy failed. Please copy manually.');
-      window.setTimeout(() => setCopyStatus(null), 2200);
+      toast.current?.show({
+        severity: 'error',
+        summary: 'Copy failed',
+        detail: 'Please copy manually.',
+        life: 3500,
+      });
     }
   };
 
@@ -59,31 +68,55 @@ export const DateCalculatorResult = ({ result }: DateCalculatorResultProps) => {
     return <Message severity="info" text="Enter valid inputs to view calculation results." />;
   }
 
-  if (result.kind === 'difference') {
-    const startText = formatDateTime(result.normalizedStart);
-    const endText = formatDateTime(result.normalizedEnd);
-    const rangeText = `${startText} -> ${endText}`;
+  return (
+    <>
+      <Toast ref={toast} position="top-right" />
+      {result.kind === 'difference' ? (
+        <DifferenceResultCard result={result} onCopy={handleCopy} />
+      ) : (
+        <AddSubtractResultCard result={result} onCopy={handleCopy} />
+      )}
+    </>
+  );
+};
 
-    return (
-      <Card title="Difference Result">
-        <div className={styles.resultList}>
-          <div><strong>Calendar days:</strong> {result.summary.calendarDays}</div>
-          <div><strong>Business days:</strong> {result.summary.businessDays}</div>
-          <div><strong>Total weeks:</strong> {result.summary.totalWeeks.toFixed(2)}</div>
-          <div><strong>Total hours:</strong> {result.summary.totalHours.toFixed(2)}</div>
-          <div><strong>Total minutes:</strong> {result.summary.totalMinutes}</div>
-          <CopyableValue label="Start (normalized)" value={startText} onCopy={handleCopy} />
-          <CopyableValue label="End (normalized)" value={endText} onCopy={handleCopy} />
-          <CopyableValue label="Range" value={rangeText} onCopy={handleCopy} />
-          {copyStatus && <small>{copyStatus}</small>}
-          {result.notes.map((note) => (
-            <small key={note}>{note}</small>
-          ))}
-        </div>
-      </Card>
-    );
-  }
+function DifferenceResultCard({
+  result,
+  onCopy,
+}: {
+  result: Extract<CalculatorEngineResult, { kind: 'difference' }>;
+  onCopy: (value: string) => void;
+}) {
+  const startText = formatDateTime(result.normalizedStart);
+  const endText = formatDateTime(result.normalizedEnd);
+  const rangeText = `${startText} -> ${endText}`;
 
+  return (
+    <Card title="Difference Result">
+      <div className={styles.resultList}>
+        <div><strong>Calendar days:</strong> {result.summary.calendarDays}</div>
+        <div><strong>Business days:</strong> {result.summary.businessDays}</div>
+        <div><strong>Total weeks:</strong> {result.summary.totalWeeks.toFixed(2)}</div>
+        <div><strong>Total hours:</strong> {result.summary.totalHours.toFixed(2)}</div>
+        <div><strong>Total minutes:</strong> {result.summary.totalMinutes}</div>
+        <CopyableValue label="Start (normalized)" value={startText} onCopy={onCopy} />
+        <CopyableValue label="End (normalized)" value={endText} onCopy={onCopy} />
+        <CopyableValue label="Range" value={rangeText} onCopy={onCopy} />
+        {result.notes.map((note) => (
+          <small key={note}>{note}</small>
+        ))}
+      </div>
+    </Card>
+  );
+}
+
+function AddSubtractResultCard({
+  result,
+  onCopy,
+}: {
+  result: Extract<CalculatorEngineResult, { kind: 'add-subtract' }>;
+  onCopy: (value: string) => void;
+}) {
   const baseText = formatDateTime(result.normalizedBase);
   const resultText = formatDateTime(result.summary.resultDate);
   const rangeText = `${baseText} -> ${resultText}`;
@@ -91,14 +124,13 @@ export const DateCalculatorResult = ({ result }: DateCalculatorResultProps) => {
   return (
     <Card title="Add/Subtract Result">
       <div className={styles.resultList}>
-        <CopyableValue label="Calculated date" value={resultText} onCopy={handleCopy} />
-        <CopyableValue label="Base (normalized)" value={baseText} onCopy={handleCopy} />
-        <CopyableValue label="Range" value={rangeText} onCopy={handleCopy} />
-        {copyStatus && <small>{copyStatus}</small>}
+        <CopyableValue label="Calculated date" value={resultText} onCopy={onCopy} />
+        <CopyableValue label="Base (normalized)" value={baseText} onCopy={onCopy} />
+        <CopyableValue label="Range" value={rangeText} onCopy={onCopy} />
         {result.notes.map((note) => (
           <small key={note}>{note}</small>
         ))}
       </div>
     </Card>
   );
-};
+}

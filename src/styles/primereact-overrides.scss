@@ -298,6 +298,35 @@ textarea.p-inputtextarea {
   color: inherit !important;
 }
 
+/* Toast (copy feedback, etc.) — align with theme tokens */
+.p-toast .p-toast-message {
+  background: var(--surface-card) !important;
+  color: var(--text-color) !important;
+  border: 1px solid var(--surface-border) !important;
+  box-shadow: 0 4px 12px var(--maskbg);
+}
+
+.p-toast .p-toast-message .p-toast-message-content {
+  gap: 0.35rem;
+}
+
+.p-toast .p-toast-message.p-toast-message-success .p-toast-summary {
+  color: var(--inline-msg-success-text) !important;
+}
+
+.p-toast .p-toast-message.p-toast-message-success .p-toast-detail {
+  color: var(--text-color) !important;
+}
+
+.p-toast .p-toast-message.p-toast-message-error .p-toast-summary,
+.p-toast .p-toast-message.p-toast-message-error .p-toast-detail {
+  color: var(--inline-msg-error-text) !important;
+}
+
+.p-toast .p-toast-icon-close {
+  color: var(--text-color-secondary) !important;
+}
+
 /* PrimeIcons inherit text color so they track the theme */
 .pi {
   color: inherit;
