@@ -3,6 +3,7 @@
 ## 0.1.10 - 2026-04-09
 
 - Declared `@date-fns/tz` in `dependencies` so production installs (including Netlify) resolve `TZDate` imports; the package was used in code but missing from `package.json`, which broke `next build` on clean CI.
+- Jira **NOVA-1393**: refreshed description, Acceptance Criteria, and Refinement Notes from `code-plan.md` (baseline scope, architecture, priorities, and edge-case matrix).
 
 ## 0.1.9 - 2026-04-08
 
